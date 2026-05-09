@@ -12,8 +12,22 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+        
+        // Steps
+        // Step 1: Return array that has exactly 'length' elements
+        // Step 2: First element (index 0) needs to be number * 1
+        // Step 3: Second element (index 1) needs to be number * 2
+        // Step 4: Continue until the last element (index length - 1) = number * length
+        // Step 5: Create a new array of doubles to hold the multiples of the number
+        // Step 6: After the loop finishes filling the array, return the array
 
-        return []; // replace this return statement with your own
+        var multiples = new double[length];
+        for (int i = 0; i < length; i++)
+        {
+            multiples[i] = number * (i + 1);
+        }
+
+        return multiples;
     }
 
     /// <summary>
@@ -29,5 +43,37 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+
+        //Steps
+        // Step 1: Move the last "amount" elements of the list to the front (shifting the first (data.Count - amount) elements to the end)
+            // Example: data = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+            // Result: Amount = 3 --> new order is [7, 8, 9, 1, 2, 3, 4, 5, 6]
+        // Step 2: Create a new list to hold the temporary list
+        // Step 3: Add the last "amount" elements to the new list first
+        // Step 4: Add the first (data.Count - amount) elements to the new list
+        // Step 5: Clear the original list and add the elements from the new list back to the original list
+            //This allows for the list to rotate even when ammount = data.Count
+
+        if (data == null || data.Count == 0 || amount == 0)
+        {
+            return;
+        }
+
+        List<int> rotated = new List<int>();
+        for (int i = data.Count - amount; i < data.Count; i++)
+        {
+            rotated.Add(data[i]);
+        }
+
+        for (int i = 0; i < data.Count - amount; i++)
+        {
+            rotated.Add(data[i]);
+        }
+
+        data.Clear();
+        foreach (int num in rotated)
+        {
+            data.Add(num);
+        }
     }
 }
