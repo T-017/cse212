@@ -52,7 +52,7 @@ public static class Arrays
         // Step 3: Add the last "amount" elements to the new list first
         // Step 4: Add the first (data.Count - amount) elements to the new list
         // Step 5: Clear the original list and add the elements from the new list back to the original list
-            //This allows for the list to rotate even when ammount = data.Count
+            //This allows for the list to rotate even when amount = data.Count
 
         if (data == null || data.Count == 0 || amount == 0)
         {
