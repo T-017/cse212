@@ -43,7 +43,7 @@ public class TakingTurnsQueueTests
     // Scenario: Create a queue with the following people and turns: Bob (2), Tim (5), Sue (3)
     // After running 5 times, add George with 3 turns.  Run until the queue is empty.
     // Expected Result: Bob, Tim, Sue, Bob, Tim, Sue, Tim, George, Sue, Tim, George, Tim, George
-    // Defect(s) Found: Sue is showing as the first person in the queue instead of Bob
+    // Defect(s) Found: Sue is showing as the first person in the dequeue instead of Bob
     public void TestTakingTurnsQueue_AddPlayerMidway()
     {
         var bob = new Person("Bob", 2);
@@ -85,7 +85,7 @@ public class TakingTurnsQueueTests
     // Scenario: Create a queue with the following people and turns: Bob (2), Tim (Forever), Sue (3)
     // Run 10 times.
     // Expected Result: Bob, Tim, Sue, Bob, Tim, Sue, Tim, Sue, Tim, Tim
-    // Defect(s) Found: Sue is showing as the first person in the queue instead of Bob, and Tim does not have infinite turns (only 10 turns)
+    // Defect(s) Found: Sue is showing as the first person in the queue instead of Bob, and Tim does not have infinite turns (just a very big number of turns)
     public void TestTakingTurnsQueue_ForeverZero()
     {
         var timTurns = 0;
@@ -116,7 +116,7 @@ public class TakingTurnsQueueTests
     // Scenario: Create a queue with the following people and turns: Tim (Forever), Sue (3)
     // Run 10 times.
     // Expected Result: Tim, Sue, Tim, Sue, Tim, Sue, Tim, Tim, Tim, Tim
-    // Defect(s) Found: Sue is showing as the first person in the queue instead of Tim, and Tim does not have infinite turns (only 10 turns)
+    // Defect(s) Found: Sue is showing as the first person in the dequeue instead of Tim, and Tim does not have infinite turns and is not re-enqueued
     public void TestTakingTurnsQueue_ForeverNegative()
     {
         var timTurns = -3;
@@ -143,7 +143,7 @@ public class TakingTurnsQueueTests
     [TestMethod]
     // Scenario: Try to get the next person from an empty queue
     // Expected Result: Exception should be thrown with appropriate error message.
-    // Defect(s) Found: None
+    // Defect(s) Found: This one was fine
     public void TestTakingTurnsQueue_Empty()
     {
         var players = new TakingTurnsQueue();
