@@ -37,5 +37,20 @@ public class PriorityQueueTests
         Assert.ThrowsException<InvalidOperationException>(() => priorityQueue.Dequeue(), "The queue is empty.");
     }
 
+    [TestMethod]
+    // Scenario: 
+    // Expected Result: 
+    // Defect(s) Found: 
+    public void TestPriorityQueue_SingleItem()
+    {
+        var priorityQueue = new PriorityQueue();
+        priorityQueue.Enqueue("Single", 27);
+
+        Assert.AreEqual("Single", priorityQueue.Dequeue());
+        Assert.AreEqual("[]", priorityQueue.ToString());
+
+        Assert.ThrowsException<InvalidOperationException>(() => priorityQueue.Dequeue());
+    }
+    
     // Add more test cases as needed below.
 }
