@@ -51,6 +51,6 @@ public class PriorityQueueTests
 
         Assert.ThrowsException<InvalidOperationException>(() => priorityQueue.Dequeue());
     }
-    
+
     // Add more test cases as needed below.
 }
