@@ -33,6 +33,12 @@ public class Maze
     public void MoveLeft()
     {
         // FILL IN CODE
+        var currentPlace = (_currX, _currY);
+        if (!_mazeMap.ContainsKey(currentPlace) || !_mazeMap[currentPlace][0])
+        {
+            throw new InvalidOperationException("Can't go that way!");
+        }
+        _currX--;
     }
 
     /// <summary>
@@ -42,6 +48,7 @@ public class Maze
     public void MoveRight()
     {
         // FILL IN CODE
+
     }
 
     /// <summary>
