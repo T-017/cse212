@@ -138,7 +138,7 @@ public static class SetsAndMaps
                 if (charCount.ContainsKey(lower))
                 {
                     charCount[lower]--;
-                    if (charCount[lower] < 0)
+                    if (charCount[lower] == 0)
                     {
                         charCount.Remove(lower);
                     }
