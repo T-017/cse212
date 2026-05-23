@@ -36,8 +36,7 @@ public static class SetsAndMaps
             {
                 continue;
             }
-            char[] chars = { word[1], word[0] };
-            string reverse = new string(chars);
+            string reverse = new string(new char[] { word[1], word[0] });
             if (word != reverse && wordSet.Contains(reverse))
             {
                 pairs.Add($"{word} & {reverse}");
@@ -64,6 +63,10 @@ public static class SetsAndMaps
         var degrees = new Dictionary<string, int>();
         foreach (var line in File.ReadLines(filename))
         {
+            if (string.IsNullOrWhiteSpace(line))
+            {
+                continue;
+            }
             var fields = line.Split(",");
             // TODO Problem 2 - ADD YOUR CODE HERE
             if (fields.Length > 3)
