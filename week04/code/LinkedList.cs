@@ -34,13 +34,11 @@ public class LinkedList : IEnumerable<int>
     {
         // TODO Problem 1
         Node newNode = new Node(value);
-        // If the list is empty
         if (_tail is null)
         {
             _head = newNode;
             _tail = newNode;
         }
-        // If the list is not empty, add tail
         else
         {
             newNode.Prev = _tail;
@@ -79,17 +77,15 @@ public class LinkedList : IEnumerable<int>
     public void RemoveTail()
     {
         // TODO Problem 2
-        // Empty list or single node
         if (_head == _tail)
         {
             _head = null;
             _tail = null;
         }
-        // Multiple nodes
         else if (_tail is not null)
         {
-            _tail.Prev!.Next = null;    // Remove tail from previous node
-            _tail = _tail.Prev;         // Move tail to previous node
+            _tail.Prev!.Next = null;
+            _tail = _tail.Prev;
         }
     }
 
@@ -135,6 +131,12 @@ public class LinkedList : IEnumerable<int>
     public void Remove(int value)
     {
         // TODO Problem 3
+        if (_head is null)
+        {
+            return;
+        }
+
+        
     }
 
     /// <summary>
