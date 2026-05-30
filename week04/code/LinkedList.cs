@@ -135,8 +135,16 @@ public class LinkedList : IEnumerable<int>
         {
             return;
         }
-
-        
+        if (_head.Data == value)
+        {
+            RemoveHead();
+            return;
+        }
+        if (_tail.Data == value)
+        {
+            RemoveTail();
+            return;
+        }
     }
 
     /// <summary>
