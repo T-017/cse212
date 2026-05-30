@@ -145,6 +145,18 @@ public class LinkedList : IEnumerable<int>
             RemoveTail();
             return;
         }
+
+        Node? curr = _head.Next;
+        while (curr is not null && curr != _tail)
+        {
+            if (curr.Data == value)
+            {
+                curr.Prev!.Next = curr.Next;
+                curr.Next!.Prev = curr.Prev;
+                return;
+            }
+            curr = curr.Next;
+        }
     }
 
     /// <summary>
