@@ -42,7 +42,7 @@ public class LinkedList : IEnumerable<int>
         else
         {
             newNode.Prev = _tail;
-            _tail.Next = newNode;
+            _tail!.Next = newNode;
             _tail = newNode;
         }
     }
@@ -140,7 +140,7 @@ public class LinkedList : IEnumerable<int>
             RemoveHead();
             return;
         }
-        if (_tail.Data == value)
+        if (_tail!.Data == value)
         {
             RemoveTail();
             return;
