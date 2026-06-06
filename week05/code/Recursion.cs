@@ -140,10 +140,10 @@ public static class Recursion
     public static void WildcardBinary(string pattern, List<string> results)
     {
         // TODO Start Problem 4
-        WildcardBinaryHelp(pattern, "", results);
+        WildcardHelp(pattern, "", results);
     }
 
-    private static void WildcardBinaryHelp(string patter, string current, List<string> results)
+    private static void WildcardHelp(string patter, string current, List<string> results)
     {
         if (patter.Length == 0)
         {
@@ -154,12 +154,12 @@ public static class Recursion
         string remainingPattern = patter.Substring(1);
         if (c == '*')
         {
-            WildcardBinaryHelp(remainingPattern, current + '0', results);
-            WildcardBinaryHelp(remainingPattern, current + '1', results);
+            WildcardHelp(remainingPattern, current + '0', results);
+            WildcardHelp(remainingPattern, current + '1', results);
         }
         else
         {
-            WildcardBinaryHelp(remainingPattern, current + c, results);
+            WildcardHelp(remainingPattern, current + c, results);
         }
     }
 
