@@ -140,6 +140,7 @@ public static class Recursion
     public static void WildcardBinary(string pattern, List<string> results)
     {
         // TODO Start Problem 4
+        
     }
 
     /// <summary>
