@@ -143,24 +143,25 @@ public static class Recursion
         WildcardHelp(pattern, "", results);
     }
 
-    private static void WildcardHelp(string patter, string current, List<string> results)
+    private static void WildcardHelp(string pattern, string current, List<string> results)
     {
-        if (patter.Length == 0)
+        if (pattern.Length == 0)
         {
             results.Add(current);
             return;
         }
-        char c = patter[0];
-        string remainingPattern = patter.Substring(1);
-        if (c == '*')
+        
+        int starIndex = pattern.IndexOf('*');
+        if (starIndex == -1)
         {
-            WildcardHelp(remainingPattern, current + '0', results);
-            WildcardHelp(remainingPattern, current + '1', results);
+            results.Add(current + pattern);
+            return;
         }
-        else
-        {
-            WildcardHelp(remainingPattern, current + c, results);
-        }
+        string prefix = pattern.Substring(0, starIndex);
+        string remaining = pattern.Substring(starIndex + 1);
+
+        WildcardHelp(remaining, current + prefix + "0", results);
+        WildcardHelp(remaining, current + prefix + "1", results);
     }
 
     /// <summary>
