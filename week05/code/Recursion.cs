@@ -140,7 +140,27 @@ public static class Recursion
     public static void WildcardBinary(string pattern, List<string> results)
     {
         // TODO Start Problem 4
-        
+        WildcardBinaryHelp(pattern, "", results);
+    }
+
+    private static void WildcardBinaryHelp(string patter, string current, List<string> results)
+    {
+        if (patter.Length == 0)
+        {
+            results.Add(current);
+            return;
+        }
+        char c = patter[0];
+        string remainingPattern = patter.Substring(1);
+        if (c == '*')
+        {
+            WildcardBinaryHelp(remainingPattern, current + '0', results);
+            WildcardBinaryHelp(remainingPattern, current + '1', results);
+        }
+        else
+        {
+            WildcardBinaryHelp(remainingPattern, current + c, results);
+        }
     }
 
     /// <summary>
